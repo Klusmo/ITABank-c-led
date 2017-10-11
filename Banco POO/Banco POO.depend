@@ -1,0 +1,34 @@
+# depslib dependency file v1.0
+1505921461 source:c:\users\augusto\documents\codeblocks projects\banco poo\main.cpp
+	<iostream>
+
+1505921461 source:c:\users\augusto\documents\codeblocks projects\banco poo\conta.cpp
+	"Conta.h"
+	<iostream>
+	<cstring>
+
+1505917357 c:\users\augusto\documents\codeblocks projects\banco poo\conta.h
+
+1506458910 source:f:\banco poo\main.cpp
+	<iostream>
+	"Agencia.h"
+	<cstdlib>
+	<cstdio>
+
+1506459438 source:f:\banco poo\agencia.cpp
+	"Agencia.h"
+	<iostream>
+	<cstdlib>
+	<cstring>
+	<cmath>
+
+1506307718 f:\banco poo\agencia.h
+	"Conta.h"
+
+1506307610 f:\banco poo\conta.h
+
+1506459496 source:f:\banco poo\conta.cpp
+	"Conta.h"
+	<iostream>
+	<cstring>
+
