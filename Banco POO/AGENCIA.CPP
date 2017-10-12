@@ -20,7 +20,7 @@ void Agencia::criarConta(char* _nomeT)
 {
     bool valida = false;
     for (int i =0; i<contConta; i++){
-        if(!strcmp(vetContas[i]->getNomeT(), _nomeT));
+        if(!strcmp(vetContas[i]->getNomeT(), _nomeT))
             valida = true;
     }
     if (valida){
@@ -51,20 +51,17 @@ bool Agencia::encerraConta(int _numConta)
         cout << "(1)sim ou (0)Nao" <<endl;
         cin>>op;
         if (1){
-            cout<<"ping"<<endl;
             // reorganiza o vetor de contas, passando a lacuna vazia para o fim do vetor.
             for(int i=0;i<MAX-1;i++){
                 if(aux == vetContas[i]){
-                     delete vetContas[i];
                      vetContas[i] = 0;
                 }
-                cout<<"ping"<<endl;
                 if (!vetContas[i] && vetContas[i+1]){
                     vetContas[i]= vetContas[i+1];
                     vetContas[i+1] = 0;
                 }
             }
-            cout<<"ping"<<endl;
+            delete aux;
             aux = 0;
             // diminui o contador que é apontado de quantas contas são existentes no banco.
             contConta--;
