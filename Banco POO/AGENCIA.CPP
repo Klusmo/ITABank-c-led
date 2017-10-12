@@ -18,9 +18,11 @@ Agencia::Agencia()
 
 void Agencia::criarConta(char* _nomeT)
 {
-    vetContas[contConta] = new (nothrow) Conta(_nomeT, proxConta);
     contConta++;
     proxConta++;
+            cout<<"Nao foi possivel alocar a nova conta"<<endl;
+        }
+    }
 }
 
 // verifica a existencia da conta, se seu saldo esta em zero, se positivo, deleta se a conta e rearranja o vetor em que antes a mesma estava incerida.
