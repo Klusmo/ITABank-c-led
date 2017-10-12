@@ -32,3 +32,19 @@
 	<iostream>
 	<cstring>
 
+1506459496 source:c:\users\casa\documents\github\itabank-c-led\banco poo\conta.cpp
+	"Conta.h"
+	<iostream>
+	<cstring>
+
+1506307610 c:\users\casa\documents\github\itabank-c-led\banco poo\conta.h
+
+1506557898 source:c:\users\casa\documents\github\itabank-c-led\banco poo\main.cpp
+	<iostream>
+	"Agencia.h"
+	<cstdlib>
+	<cstdio>
+
+1506307718 c:\users\casa\documents\github\itabank-c-led\banco poo\agencia.h
+	"Conta.h"
+
