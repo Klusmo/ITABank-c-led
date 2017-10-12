@@ -18,8 +18,21 @@ Agencia::Agencia()
 
 void Agencia::criarConta(char* _nomeT)
 {
-    contConta++;
-    proxConta++;
+    bool valida = false;
+    for (int i =0; i<contConta; i++){
+        if(!strcmp(vetContas[i]->getNomeT(), _nomeT));
+            valida = true;
+    }
+    if (valida){
+        cout<<"O cliente "<<_nomeT<<" ja possui conta neste banco"<<endl;
+    }else{
+        vetContas[contConta] = new (nothrow) Conta(_nomeT, proxConta);
+        if(vetContas[contConta]){
+            vetContas[contConta]->exibirConta();
+            contConta++;
+            proxConta++;
+            cout<<"Conta Criada com sucesso"<<endl;
+        }else{
             cout<<"Nao foi possivel alocar a nova conta"<<endl;
         }
     }
