@@ -32,26 +32,25 @@
 	<iostream>
 	<cstring>
 
-1506459496 source:c:\users\casa\documents\github\itabank-c-led\banco poo\conta.cpp
+1507916658 source:c:\users\casa\documents\github\itabank-c-led\banco poo\conta.cpp
 	"Conta.h"
 	<iostream>
 	<cstring>
 
-1506307610 c:\users\casa\documents\github\itabank-c-led\banco poo\conta.h
+1507916658 c:\users\casa\documents\github\itabank-c-led\banco poo\conta.h
 
-1506557898 source:c:\users\casa\documents\github\itabank-c-led\banco poo\main.cpp
+1507920455 source:c:\users\casa\documents\github\itabank-c-led\banco poo\main.cpp
 	<iostream>
 	"Agencia.h"
 	<cstdlib>
 	<cstdio>
 
-1506307718 c:\users\casa\documents\github\itabank-c-led\banco poo\agencia.h
+1507916658 c:\users\casa\documents\github\itabank-c-led\banco poo\agencia.h
 	"Conta.h"
 
-1507812175 source:c:\users\casa\documents\github\itabank-c-led\banco poo\agencia.cpp
+1507919894 source:c:\users\casa\documents\github\itabank-c-led\banco poo\agencia.cpp
 	"Agencia.h"
 	<iostream>
 	<cstdlib>
 	<cstring>
-	<cmath>
 
