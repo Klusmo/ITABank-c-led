@@ -22,7 +22,6 @@ int main()
     if(BancoPOO){
         int op, numConta, numConta2, valor;
         char nome[75];
-        cout<<&BancoPOO<<endl;
 
         // Menu do BancoPoo.
         do
