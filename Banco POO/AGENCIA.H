@@ -3,16 +3,13 @@
 
 #include "Conta.h"
 
-// Numero maximo de contas permitidos na agencia.
-const int MAX = 3;
-
 // Agencia controla todo o macro das contas, gerindo todo o conjunto de operações.
 class Agencia
 {
 
 private:
-    // vetor que guarda todas as contas do Banco, ate o limite extipulado por MAX.
-    Conta *vetContas [MAX];
+    Conta *inicioContas;
+
     int contConta ;
     int proxConta;
 
