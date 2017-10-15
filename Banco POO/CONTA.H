@@ -2,7 +2,8 @@
 #define CONTA_H_INCLUDED
 
 // Conta gerencia todas as variaveis manipuladas de forma micro dentro das contas.
-class  Conta{
+class  Conta
+{
 private:
     // Aqui ficar salvo o nome do titular da conta.
     char *nomeT;

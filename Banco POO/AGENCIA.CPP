@@ -2,30 +2,45 @@
 #include <iostream>
 #include <cstdlib>
 #include <cstring>
-#include <cmath>
 
 using namespace std;
 
 //construtor padrão.
-Agencia::Agencia()
-{
-    for(int i = 0;i<MAX; i++){
+Agencia::Agencia(){
+    for(int i = 0; i<MAX; i++){
         vetContas[i] = 0;
     }
     contConta=0;
     proxConta=1;
 }
 
-void Agencia::criarConta(char* _nomeT)
-{
-    vetContas[contConta] = new (nothrow) Conta(_nomeT, proxConta);
-    contConta++;
-    proxConta++;
+void Agencia::criarConta(char* _nomeT){
+    bool valida = false;
+    for (int i =0; i<contConta; i++){
+        if(!strcmp(vetContas[i]->getNomeT(), _nomeT))
+            valida = true;
+    }
+    if (valida){
+        cout<<"O cliente "<<_nomeT<<" ja possui conta neste banco"<<endl;
+    }else{
+        if(contConta!=MAX){
+            vetContas[contConta] = new (nothrow) Conta(_nomeT, proxConta);
+            if(vetContas[contConta]){
+                vetContas[contConta]->exibirConta();
+                contConta++;
+                proxConta++;
+                cout<<"Conta Criada com sucesso"<<endl;
+            }else{
+                cout<<"Nao foi possivel alocar a nova conta"<<endl;
+            }
+        }else{
+            cout<<"Numero maximo de contas atingido"<<endl;
+        }
+    }
 }
 
 // verifica a existencia da conta, se seu saldo esta em zero, se positivo, deleta se a conta e rearranja o vetor em que antes a mesma estava incerida.
-bool Agencia::encerraConta(int _numConta)
-{
+bool Agencia::encerraConta(int _numConta){
     // verifica os atributos da conta a ser deletada.
     int op;
     Conta *aux = locConta(_numConta);
@@ -36,27 +51,23 @@ bool Agencia::encerraConta(int _numConta)
         cout << "(1)sim ou (0)Nao" <<endl;
         cin>>op;
         if (1){
-            cout<<"ping"<<endl;
             // reorganiza o vetor de contas, passando a lacuna vazia para o fim do vetor.
-            for(int i=0;i<MAX-1;i++){
+            for(int i=0; i<MAX-1; i++){
                 if(aux == vetContas[i]){
-                     delete vetContas[i];
-                     vetContas[i] = 0;
+                    vetContas[i] = 0;
                 }
-                cout<<"ping"<<endl;
                 if (!vetContas[i] && vetContas[i+1]){
                     vetContas[i]= vetContas[i+1];
                     vetContas[i+1] = 0;
                 }
             }
-            cout<<"ping"<<endl;
+            delete aux;
             aux = 0;
             // diminui o contador que é apontado de quantas contas são existentes no banco.
             contConta--;
             cout<< "Conta encerrada com sucesso ! " << endl;
             return true;
-        }
-        else{
+        }else{
             return false;
         }
     }else{
@@ -67,30 +78,26 @@ bool Agencia::encerraConta(int _numConta)
             cout<<"A conta"<<_numConta<<"nao existe"<<endl;
 
         return false;
-
     }
 
 }
 
 //operação para a busca das contas cadastradas na agencia.
-Conta* Agencia::locConta(int _numero)
-{
-    for (int i=0;i<MAX;i++)
+Conta* Agencia::locConta(int _numero){
+    for (int i=0; i<MAX; i++)
         if(vetContas[i]->getNumConta()==_numero)
             return vetContas[i];
-
     return 0;
 }
 
 // confere o valor pedido a ser sacado.
-bool Agencia::sacar(int _numero, float valor)
-{
+bool Agencia::sacar(int _numero, float valor){
     Conta *aux = locConta(_numero);
     if(aux){
         aux->exibirConta();
         if(aux->saque(valor)){
             return true;
-        }else {
+        }else{
             cout<<"Saldo Insuficiente"<<endl;
             return false;
         }
@@ -101,8 +108,7 @@ bool Agencia::sacar(int _numero, float valor)
 }
 
 // verifica a existencia da conta requisitada.
-bool Agencia::deposito(int _numero, float valor)
-{
+bool Agencia::deposito(int _numero, float valor){
     Conta *aux = locConta(_numero);
     if(aux){
         aux->deposito(valor);
@@ -139,8 +145,7 @@ bool Agencia::tranferir(int nOrigem, int nDestino, float valor){
 }
 
 // exibe todas as contas cadastradas ate então na agencia.
-void Agencia::listarCont()
-{
+void Agencia::listarCont(){
     for(int i=0; i < MAX; i++){
         if (vetContas[i]){
             vetContas[i]->exibirConta();
@@ -150,8 +155,9 @@ void Agencia::listarCont()
 }
 
 //destrutor
-Agencia::~Agencia()
-{
-    for(int i=0; i<MAX; i++)
+Agencia::~Agencia(){
+    for(int i=0; i<MAX; i++){
         delete vetContas[i];
+        vetContas[i] = 0;
+    }
 }

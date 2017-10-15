@@ -7,7 +7,8 @@
 const int MAX = 3;
 
 // Agencia controla todo o macro das contas, gerindo todo o conjunto de operações.
-class Agencia {
+class Agencia
+{
 
 private:
     // vetor que guarda todas as contas do Banco, ate o limite extipulado por MAX.

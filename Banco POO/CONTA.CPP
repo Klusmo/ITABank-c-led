@@ -77,5 +77,6 @@ bool Conta::saque(float valor){
 // Destrutor
 Conta::~Conta(){
     // desaloca a variavel da memoria .
-    delete [] nomeT; nomeT = 0;
+    delete [] nomeT;
+    nomeT = 0;
 }
