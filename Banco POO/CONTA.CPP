@@ -6,8 +6,10 @@ using  namespace std;
 //Contrutor Padrão
 Conta::Conta(){
     nomeT = 0;
-    numConta=0;
-    saldo=0;
+    numConta = 0;
+    saldo = 0;
+    prox = 0;
+    ant = 0;
 }
 
 //Contrutor Parametrizado
@@ -19,6 +21,8 @@ Conta::Conta(char _nomeT[], int _numConta){
         strcpy(nomeT, _nomeT);
         numConta=_numConta;
         saldo=0;
+        prox = 0;
+        ant = 0;
     }else
         cout<<"Não foi Possivel alocar "<<_nomeT<<endl;
 }
@@ -31,6 +35,22 @@ void Conta::setNomeT(char _nomeT[]){
         strcpy(nomeT, _nomeT);
     }else
         cout<<"Não foi Possivel alocar "<<_nomeT<<endl;
+}
+
+void Conta::setAnt(Conta* _ant){
+    ant=_ant;
+}
+
+void Conta::setProx(Conta* _Prox){
+    prox=_Prox;
+}
+
+Conta* Conta::getAnt(){
+    return ant;
+}
+
+Conta* Conta::getProx(){
+    return prox;
 }
 
 void Conta::setNumConta(int _numConta){
@@ -74,9 +94,14 @@ bool Conta::saque(float valor){
         // Sinaliza uma incompatibilidade para realizar a operação.
         return false;
 }
+
 // Destrutor
 Conta::~Conta(){
     // desaloca a variavel da memoria .
     delete [] nomeT;
     nomeT = 0;
+    delete prox;
+    prox = 0;
 }
+
+

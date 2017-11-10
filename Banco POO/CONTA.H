@@ -12,6 +12,9 @@ private:
     // valor atual da conta do titular, indicando o saldo em sua conta.
     float saldo;
 
+    //Lista Duplamente encadeada
+    Conta *ant, *prox;
+
 public:
     // construtor sem parametros. Inicia os valores das variaveis zerados.
     Conta();
@@ -25,6 +28,12 @@ public:
     void setNumConta(int _numConta);
     // altera o valor do saldo presente.
     void setSaldo(float _saldo);
+
+    void setAnt(Conta *_ant);
+    void setProx(Conta *_Prox);
+
+    Conta* getAnt();
+    Conta* getProx();
 
     char* getNomeT();
     int getNumConta();
